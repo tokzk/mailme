@@ -2,32 +2,32 @@ require 'sinatra'
 require 'active_support'
 require 'active_support/core_ext'
 
-# Pony.options = {
-#   via: :smtp,
-#   charset: "UTF-8",
-#   via_options: {
-#     address: 'smtp.gmail.com',
-#     port: '587',
-#     domain: 'mail.gmail.com',
-#     user_name: ENV['USER_NAME'],
-#     password: ENV['USER_PASSWORD'],
-#     authentication: :plain
-#   }
-# }
-
 Pony.options = {
   via: :smtp,
-  charset: 'UTF-8',
+  charset: "UTF-8",
   via_options: {
-    address: 'localhost',
-    port: '2525'
+    address: 'smtp.gmail.com',
+    port: '587',
+    domain: 'mail.gmail.com',
+    user_name: ENV['USER_NAME'],
+    password: ENV['USER_PASSWORD'],
+    authentication: :plain
   }
 }
 
+# Pony.options = {
+#   via: :smtp,
+#   charset: 'UTF-8',
+#   via_options: {
+#     address: 'localhost',
+#     port: '2525'
+#   }
+# }
+
 configure do
-  set :replyto,       ENV['MAIL_REPLY_TO']
-  set :mail_from,     ENV['MAIL_FROM']
-  set :subject,       'Inquiry from site.'
+  set :replyto, ENV['MAIL_REPLY_TO']
+  set :mail_from, ENV['MAIL_FROM']
+  set :subject, 'Inquiry from site.'
   set :template_path, 'views/message.html.erb'
   set :reserved, ['_subject',
                   '_replyto',
