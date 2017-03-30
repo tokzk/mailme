@@ -1,6 +1,7 @@
-require 'sinatra'
 require 'active_support'
 require 'active_support/core_ext'
+require 'pony'
+require 'sinatra'
 
 Pony.options = {
   via: :smtp,
