@@ -9,21 +9,12 @@ Pony.options = {
   via_options: {
     address: 'smtp.gmail.com',
     port: '587',
-    domain: 'mail.gmail.com',
+    domain: 'gmail.com',
     user_name: ENV['USER_NAME'],
     password: ENV['USER_PASSWORD'],
     authentication: :plain
   }
 }
-
-# Pony.options = {
-#   via: :smtp,
-#   charset: 'UTF-8',
-#   via_options: {
-#     address: 'localhost',
-#     port: '2525'
-#   }
-# }
 
 configure do
   set :replyto, ENV['MAIL_REPLY_TO']
