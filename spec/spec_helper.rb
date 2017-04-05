@@ -11,7 +11,7 @@ require File.expand_path '../../app.rb', __FILE__
 module RSpecMixin
   include Rack::Test::Methods
   def app
-    Sinatra::Application
+    @app ||= App
   end
 end
 
