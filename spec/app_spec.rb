@@ -5,6 +5,13 @@ describe 'The HelloWorld App' do
     expect(last_response.body).to include 'Hello, World'
   end
 
+  it 'is empty params' do
+    post '/send', { _honey: 'dfasfa'}
+
+    current_email = all_emails.last
+    expect(current_email).to be_nil
+  end
+
   it 'send email' do
     params = { email: 'test@example.com', message: 'message', _replyto: 'owner@example.com', _subject: 'subject' }
     post '/send', params

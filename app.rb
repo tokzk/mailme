@@ -37,6 +37,7 @@ class App < Sinatra::Base
     def deliver(details)
       replyto = details[:_replyto] || settings.replyto
       subject = details[:_subject] || settings.subject
+      return if details[:_honey].present?
       data = details.except(*settings.reserved)
 
       body = ERB.new(File.read(settings.template_path)).result(binding)
